@@ -1,0 +1,37 @@
+doctype html
+html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
+	head
+		meta(charset="utf-8")
+		title(ng-bind="(App.currentSection.name||'eManage')+(App.currentPage?(' > '+App.currentPage):'')") eManage Loading...
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		link(rel="shortcut icon" href="favicon.ico")
+		link(rel="stylesheet" href='style.css?'+VERSION)
+		link(rel="stylesheet" href='app.css?'+VERSION)
+	body(layout="row" ng-cloak)
+		md-sidenav.md-whiteframe-z2(tabindex="-1" md-component-id="main-menu" md-is-locked-open="$mdMedia('gt-sm')")
+			md-toolbar
+				h1.md-toolbar-tools {{App.user.name}}
+			md-content(role="navigation" flex)
+				ul.main-menu
+					li(ng-repeat="section in App.mainMenu" class="parent-list-item {{section.className || ''}}" ng-class="{'parent-active' : isSectionSelected(section)}")
+						h2.menu-heading.md-subhead(ng-if="section.type === 'heading'" id="heading_{{ section.name | nospace }}") {{section.name}}
+						menu-link(section="section" ng-if="section.type === 'link'")
+						menu-toggle(section="section" ng-if="section.type === 'toggle'")
+						ul.menu-nested-list(ng-if="section.children")
+							li(ng-repeat="child in section.children" ng-class="{'child-active':isSectionSelected(child)}")
+								menu-link(section="section" ng-if="section.type === 'link'")
+								menu-toggle(section="section" ng-if="section.type === 'toggle'")
+		div(layout="column" tabindex="-1" role="main" flex)
+			md-toolbar.md-whiteframe-glow-z1
+				.md-toolbar-tools(ng-click="App.openMainMenu()" tabindex="-1")
+					md-button.md-icon-button(aria-label="Toggle Menu" hide-gt-sm)
+						md-icon(md-font-icon="mdi mdi-24 mdi-menu")
+					div.fill-height(layout="row" flex)
+						h2.md-headline eManage
+			md-content(ng-view md-scroll-y flex layout-padding)
+		script(src="socket.io/socket.io.js")
+		script(src='angular.js?'+VERSION)
+		script(src='i18n/angular-locale_en.js?'+VERSION)
+		script(src='i18n/en.js?'+VERSION)
+		script(src='app.js?'+VERSION)
+		script(src='app-tpl.js?'+VERSION)

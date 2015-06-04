@@ -1,0 +1,40 @@
+{
+  "name": "emanage-client",
+  "version": "0.0.0",
+  "description": "Client for eManage system",
+  "authors": [
+    "Max <maximaka0@gmail.com>"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "emanage",
+    "client"
+  ],
+  "license": "MIT",
+  "homepage": "http://emanage.com.ua",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-animate": "~1.4.0",
+    "angular-aria": "~1.4.0",
+    "angular-chart.js": "~0.7.1",
+    "angular-cookies": "~1.4.0",
+    "angular-i18n": "~1.4.0",
+    "angular-material": "~0.9.7",
+    "angular-resource": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-socket-io": "~0.7.0",
+    "angular-translate": "~2.7.0",
+    "Chart.js": "~1.0.2",
+    "mdi": "~1.1.34",
+    "ngstorage": "~0.3.4"
+  }
+}
