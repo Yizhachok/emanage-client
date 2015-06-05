@@ -1,7 +1,7 @@
 'use strict';
 
 exports.dependencies=[
-	'clean-dist',
+	//'clean-dist',
 	'watch',
 	'build'
 ];

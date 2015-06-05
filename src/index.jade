@@ -13,14 +13,6 @@ html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
 				h1.md-toolbar-tools {{App.user.name}}
 			md-content(role="navigation" flex)
 				ul.main-menu
-					li(ng-repeat="section in App.mainMenu" class="parent-list-item {{section.className || ''}}" ng-class="{'parent-active' : isSectionSelected(section)}")
-						h2.menu-heading.md-subhead(ng-if="section.type === 'heading'" id="heading_{{ section.name | nospace }}") {{section.name}}
-						menu-link(section="section" ng-if="section.type === 'link'")
-						menu-toggle(section="section" ng-if="section.type === 'toggle'")
-						ul.menu-nested-list(ng-if="section.children")
-							li(ng-repeat="child in section.children" ng-class="{'child-active':isSectionSelected(child)}")
-								menu-link(section="section" ng-if="section.type === 'link'")
-								menu-toggle(section="section" ng-if="section.type === 'toggle'")
 		div(layout="column" tabindex="-1" role="main" flex)
 			md-toolbar.md-whiteframe-glow-z1
 				.md-toolbar-tools(ng-click="App.openMainMenu()" tabindex="-1")

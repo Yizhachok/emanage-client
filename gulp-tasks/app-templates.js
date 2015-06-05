@@ -26,7 +26,7 @@ exports.task=function(){
 			useStrict:false
 		}))
 		.pipe(concat('app-tpl.js'))
-		.pipe(header('"use strict";\nangular.module("'+config.appTemplateModule+'").run(["$templateCache",function($templateCache){\n'))
+		.pipe(header('"use strict";\nangular.module("'+config.appTemplateModule+'",[]).run(["$templateCache",function($templateCache){\n'))
 		.pipe(footer('\n}]);'))
 		.pipe(uglify())
 		.pipe(gulp.dest(config.outputDir));

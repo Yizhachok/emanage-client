@@ -14,7 +14,8 @@ module.exports=exports={
 		'bower_components/angular-resource/angular-resource.js',
 		'bower_components/angular-route/angular-route.js',
 		'bower_components/angular-socket-io/socket.js',
-		'bower_components/angular-translate/angular-translate.js'
+		'bower_components/angular-translate/angular-translate.js',
+		'bower_components/ngstorage/ngStorage.js'
 	],
 
 	style:[
@@ -59,6 +60,7 @@ module.exports=exports={
 	// CONSTANTS
 	ROOT:require('path').normalize(__dirname+'/..'),
 	VERSION:args.version||require('../package.json').version,
+	LR_PORT:args.port||args.p||8080,
 	IS_DEV:args.dev,
 	SHA:args.sha
 };
