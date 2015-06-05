@@ -12,7 +12,8 @@ var eManage=angular.module('eManage',
 		'ngRoute',
 		'btford.socket-io',
 		'pascalprecht.translate',
-		'ngStorage'
+		'ngStorage',
+		'eManage-templates'
 	],
 	function($routeProvider){
 		function isAuth(Auth){
