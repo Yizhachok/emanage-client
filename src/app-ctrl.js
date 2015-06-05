@@ -8,4 +8,7 @@ eManage
 		App.openMainMenu=function(){
 			$mdSidenav('main-menu').open();
 		};
+		App.allowedMainMenu=function(){
+			return User.$auth;
+		};
 	});

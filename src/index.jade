@@ -8,7 +8,7 @@ html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
 		link(rel="stylesheet" href='style.css?'+VERSION)
 		link(rel="stylesheet" href='app.css?'+VERSION)
 	body(layout="row" ng-cloak)
-		md-sidenav.md-whiteframe-z2(tabindex="-1" md-component-id="main-menu" md-is-locked-open="$mdMedia('gt-sm')")
+		md-sidenav.md-whiteframe-z2(tabindex="-1" md-component-id="main-menu" md-is-locked-open="App.allowedMainMenu()&&$mdMedia('gt-sm')")
 			md-toolbar
 				h1.md-toolbar-tools {{App.user.name}}
 			md-content(role="navigation" flex)
@@ -16,7 +16,7 @@ html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
 		div(layout="column" tabindex="-1" role="main" flex)
 			md-toolbar.md-whiteframe-glow-z1
 				.md-toolbar-tools(ng-click="App.openMainMenu()" tabindex="-1")
-					md-button.md-icon-button(aria-label="Toggle Menu" hide-gt-sm)
+					md-button.md-icon-button(ng-show="App.allowedMainMenu()" hide-gt-sm)
 						md-icon(md-font-icon="mdi mdi-24 mdi-menu")
 					div.fill-height(layout="row" flex)
 						h2.md-headline eManage
