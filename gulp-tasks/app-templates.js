@@ -20,7 +20,7 @@ exports.task=function(){
 			collapseWhitespace:true
 		}))
 		.pipe(ngtemplate({
-			pathPrefix:'app/',
+			pathPrefix:'',
 			header:'',
 			footer:'',
 			useStrict:false
