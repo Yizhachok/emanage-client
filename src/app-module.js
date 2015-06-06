@@ -16,10 +16,10 @@ var eManage=angular.module('eManage',
 		'eManage-templates'
 	],
 	function($routeProvider){
-		function isAuth(Auth){
-			return Auth.isAuth();
+		function isAuth(User){
+			return User.$isAuth();
 		}
-		isAuth.$inject=['Auth'];
+		isAuth.$inject=['User'];
 		$routeProvider.whenAuth=function(path,route){
 			route.resolve=route.resolve||{};
 			route.resolve.isAuth=isAuth;
