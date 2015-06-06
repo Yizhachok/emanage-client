@@ -25,9 +25,11 @@ eManage
 				},function(response){ // Error
 					$mdToast.show(
 						$mdToast.simple()
-							.content(response.data.msg)
+							.content(response.data.msg||response.status+': '+response.statusText)
+							.action('Close')
+							.highlightAction(false)
 							.position('top right')
-							.hideDelay(3000)
+							.hideDelay(4000)
 					);
 				});
 		};
