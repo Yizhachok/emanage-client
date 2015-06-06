@@ -62,7 +62,8 @@ module.exports=exports={
 	VERSION:args.version||require('../package.json').version,
 	LR_PORT:args.port||args.p||8080,
 	IS_DEV:args.dev,
-	SHA:args.sha
+	SHA:args.sha,
+	ARGS:args
 };
 
 exports.appLocales.forEach(function(locale){
