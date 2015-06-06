@@ -23,7 +23,7 @@ html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
 						h2.md-headline eManage
 							span#realtime-connection(ng-class="{online:App.realtimeConnected}" title="Realtime")
 			md-content(ng-view md-scroll-y flex layout-padding)
-		script(src="socket.io/socket.io.js")
+		script(src=IS_DEV?'https://cdn.socket.io/socket.io-1.3.5.js':'socket.io/socket.io.js')
 		script(src='angular.js?'+VERSION)
 		script(src='i18n/angular-locale_en.js?'+VERSION)
 		script(src='i18n/en.js?'+VERSION)
