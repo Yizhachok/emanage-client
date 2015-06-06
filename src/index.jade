@@ -15,11 +15,12 @@ html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
 				ul.main-menu
 		div(layout="column" tabindex="-1" role="main" flex)
 			md-toolbar.md-whiteframe-glow-z1
-				.md-toolbar-tools(ng-click="App.openMainMenu()" tabindex="-1")
-					md-button.md-icon-button(ng-show="App.allowedMainMenu()" hide-gt-sm)
+				.md-toolbar-tools
+					md-button.md-icon-button(ng-show="App.allowedMainMenu()&&!$mdMedia('gt-sm')" ng-click="App.openMainMenu()" tabindex="-1")
 						md-icon(md-font-icon="mdi mdi-24 mdi-menu")
 					div.fill-height(layout="row" flex)
 						h2.md-headline eManage
+							span#realtime-connection(ng-class="{online:App.realtimeConnected}" title="Realtime")
 			md-content(ng-view md-scroll-y flex layout-padding)
 		script(src="socket.io/socket.io.js")
 		script(src='angular.js?'+VERSION)
