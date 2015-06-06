@@ -12,7 +12,7 @@ exports.task=function(){
 		.pipe(sourcemaps.init())
 		.pipe(less({
 			paths:[
-				'app_public/less/include'
+				'src/less/include'
 			]
 		}))
 		.pipe(concat('app.css'))
