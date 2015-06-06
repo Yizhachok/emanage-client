@@ -5,6 +5,7 @@ html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
 		title(ng-bind="(App.currentSection.name||'eManage')+(App.currentPage?(' > '+App.currentPage):'')") eManage Loading...
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		link(rel="shortcut icon" href="favicon.ico")
+		link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:100,300,400,500,700,400italic")
 		link(rel="stylesheet" href='style.css?'+VERSION)
 		link(rel="stylesheet" href='app.css?'+VERSION)
 	body(layout="row" ng-cloak)
@@ -14,9 +15,9 @@ html(ng-app="eManage" ng-controller="AppCtrl as App" lang="locale" ng-strict-di)
 			md-content(role="navigation" flex)
 				ul.main-menu
 		div(layout="column" tabindex="-1" role="main" flex)
-			md-toolbar.md-whiteframe-glow-z1
+			md-toolbar.md-whiteframe-glow-z1(ng-show="App.User.$auth")
 				.md-toolbar-tools
-					md-button.md-icon-button(ng-show="App.allowedMainMenu()&&!$mdMedia('gt-sm')" ng-click="App.openMainMenu()" tabindex="-1")
+					md-button.md-icon-button(ng-show="App.allowedMainMenu()&&!$mdMedia('gt-sm')" ng-click="App.openMainMenu()" aria-label="Toggle Menu" tabindex="-1")
 						md-icon(md-font-icon="mdi mdi-24 mdi-menu")
 					div.fill-height(layout="row" flex)
 						h2.md-headline eManage
