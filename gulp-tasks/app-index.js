@@ -9,7 +9,8 @@ exports.task=function(){
 	return gulp.src(config.appIndex)
 		.pipe(jade({
 			locals:{
-				VERSION:config.VERSION
+				VERSION:config.VERSION,
+				IS_DEV:config.IS_DEV
 			},
 			pretty:true
 		}))
