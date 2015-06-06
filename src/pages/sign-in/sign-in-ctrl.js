@@ -7,17 +7,13 @@ eManage
 			templateUrl:'pages/sign-in/sign-in.html'
 		});
 	})
-	.controller('SignInCtrl',function($http,$localStorage){
+	.controller('SignInCtrl',function($http,$localStorage,$mdToast){
 		var SignIn=this;
 
 		SignIn.login='';
 		SignIn.password='';
 
-		SignIn.msg='';
-
 		SignIn.signIn=function(){
-			SignIn.msg='';
-
 			var signInData={
 				login:SignIn.login,
 				password:SignIn.password
@@ -27,7 +23,12 @@ eManage
 				.then(function(response){ // Success
 					$localStorage.token=response.data;
 				},function(response){ // Error
-					SignIn.msg=response.data.msg;
+					$mdToast.show(
+						$mdToast.simple()
+							.content(response.data.msg)
+							.position('top right')
+							.hideDelay(3000)
+					);
 				});
 		};
 	});
