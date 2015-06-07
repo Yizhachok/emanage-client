@@ -6,9 +6,9 @@
 				.md-subhead Please Sign in
 				md-input-container
 					label Login
-					input(ng-model="User.login" required)
+					input(ng-model="SignIn.login" required)
 				md-input-container
 					label Password
-					input(type="password" ng-model="User.password" required)
+					input(type="password" ng-model="SignIn.password" required)
 				div(layout="row")
 					md-button.sign-in-button.md-raised.md-primary(flex="100" type="submit" ng-disabled="SignInForm.$invalid") Sign in
