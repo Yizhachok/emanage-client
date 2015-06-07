@@ -10,8 +10,10 @@ describe('Sign in tests',function(){
 		signInPage.get();
 	});
 
-	it('should activate sign in button',function(){
+	it('sign in button should be disabled',function(){
 		expect(signInPage.signInBtn.isEnabled()).to.eventually.be.false;
+	});
+	it('sign in button should be active',function(){
 		signInPage.setLogin(params.signIn.login);
 		signInPage.setPassword(params.signIn.password);
 		expect(signInPage.signInBtn.isEnabled()).to.eventually.be.true;
