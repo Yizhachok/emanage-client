@@ -5,14 +5,17 @@
   "description": "Client for eManage system",
   "homepage": "https://github.com/Yizhachok/emanage-client",
   "scripts": {
-    "build": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "\"node_modules/.bin/gulp\" build",
+    "test": "\"node_modules/.bin/gulp\" karma",
+    "test-protractor": "node \"node_modules/protractor/bin/protractor\" \"config/protractor.js\"",
+    "webdriver-manager": "node \"node_modules/protractor/bin/webdriver-manager\""
   },
   "bugs": {
     "url": "https://github.com/Yizhachok/emanage-client/issues"
   },
   "dependencies": {
     "chai": "^3.0.0",
+    "chai-as-promised": "^5.1.0",
     "conventional-changelog": "0.0.17",
     "del": "^1.2.0",
     "gulp": "^3.8.11",
@@ -37,6 +40,7 @@
     "karma-mocha": "^0.1.10",
     "minimist": "^1.1.1",
     "mocha": "^2.2.5",
+    "protractor": "^2.1.0",
     "run-sequence": "^1.1.0"
   }
 }
