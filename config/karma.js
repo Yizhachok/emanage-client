@@ -6,25 +6,20 @@ module.exports=function(config){
 			'dist/app-tpl.js',
 			'src/**/*.spec.js'
 		],
-		// Include should assertion library
-		dependencies=['node_modules/should/should.js'];
-
-	dependencies=dependencies.concat(
 		// Load list of sources from gulp config file
-		require('./gulp').angular,
+		dependencies=require('./gulp').angular.concat(
+			// Add 3d party mocks
+			'bower_components/angular-mocks/angular-mocks.js',
+			'bower_components/angular-material/angular-material-mocks.js',
+			'bower_components/angular-socket-io/mock/socket-io.js',
 
-		// Add 3d party mocks
-		'bower_components/angular-mocks/angular-mocks.js',
-		'bower_components/angular-material/angular-material-mocks.js',
-		'bower_components/angular-socket-io/mock/socket-io.js',
-
-		'test/app-mocks.js',
-		'test/app-spec.js'
-	);
+			'test/app-mocks.js',
+			'test/app-spec.js'
+		);
 
 	config.set({
 		basePath:__dirname+'/..',
-		frameworks:['mocha'],
+		frameworks:['mocha','chai'],
 		files:dependencies.concat(src),
 
 		logLevel:config.LOG_WARN,

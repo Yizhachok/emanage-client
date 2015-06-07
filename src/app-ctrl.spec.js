@@ -10,9 +10,9 @@ describe('AppCtrl',function(){
 
 	it('all properties and methods exist',function(){
 		var controller=$controller('AppCtrl',{$scope:$scope});
-		Should.exist(controller.User);
-		controller.realtimeConnected.should.be.false;
-		Should.exist(controller.openMainMenu);
-		controller.allowedMainMenu().should.be.false;
+		expect(controller.User).to.exist;
+		expect(controller.openMainMenu).to.exist;
+		expect(controller.realtimeConnected).to.be.false;
+		expect(controller.allowedMainMenu()).to.be.false;
 	});
 });
