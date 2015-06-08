@@ -46,6 +46,13 @@ module.exports=function(config){
 				base:'Chrome',
 				flags:['--disable-web-security']
 			}
+		},
+		
+		client:{
+			mocha:{
+				reporter:'html',
+				ui:'bdd'
+			}
 		}
 	});
 };
