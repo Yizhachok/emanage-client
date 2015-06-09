@@ -2,9 +2,10 @@
 
 module.exports=function(config){
 	var src=[
-			'dist/app.js',
 			'dist/app-tpl.js',
-			'src/**/*.spec.js'
+			'src/common.js',
+			'src/app-module.js',
+			'src/**/*.js'
 		],
 		// Load list of sources from gulp config file
 		dependencies=require('./gulp').angular.concat(
@@ -24,7 +25,8 @@ module.exports=function(config){
 
 		logLevel:config.LOG_WARN,
 		port:9876,
-		reporters:['progress'],
+		// Default: progress
+		reporters:['spec','coverage'],
 		colors:true,
 
 		// Continuous Integration mode
@@ -47,10 +49,21 @@ module.exports=function(config){
 				flags:['--disable-web-security']
 			}
 		},
-		
+
+		preprocessors: {
+			// source files, that you wanna generate coverage for
+			// do not include tests or libraries
+			// (these files will be instrumented by Istanbul)
+			'src/**/!(*.spec).js':['coverage']
+		},
+		coverageReporter: {
+			type:'html',
+			dir:'coverage/'
+		},
+
 		client:{
+			captureConsole:false,
 			mocha:{
-				reporter:'html',
 				ui:'bdd'
 			}
 		}
