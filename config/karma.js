@@ -20,13 +20,19 @@ module.exports=function(config){
 
 	config.set({
 		basePath:__dirname+'/..',
-		frameworks:['mocha','chai'],
+		frameworks:[
+			'mocha',
+			'chai'
+		],
 		files:dependencies.concat(src),
 
 		logLevel:config.LOG_WARN,
 		port:9876,
-		// Default: progress
-		reporters:['spec','coverage'],
+		reporters:[
+			// Default: progress
+			'spec',
+			'coverage'
+		],
 		colors:true,
 
 		// Continuous Integration mode
